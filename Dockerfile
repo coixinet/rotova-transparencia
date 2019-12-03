@@ -30,6 +30,6 @@ USER liferay
 
 EXPOSE 8080
 
-RUN ["chmod", "+x", "catalina.sh"]
+RUN ["chmod", "+x", "$CATALINA_HOME/bin/catalina.sh"]
 
 ENTRYPOINT ["catalina.sh", "run"]
