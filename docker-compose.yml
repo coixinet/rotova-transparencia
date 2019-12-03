@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: .
+    expose:
+      - '8080'
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./opt/www626:/opt/www626
+    depends_on:
+      - srv-captain--transparencia-db
+  srv-captain--transparencia-db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'rotova_transparencia'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'rotova_transparencia'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'Crujuozu0124!'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'Crujuozu0124!'
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
