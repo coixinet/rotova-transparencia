@@ -24,11 +24,10 @@ RUN apt-get -qq update && \
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 
-RUN chown -R liferay:liferay $LIFERAY_HOME
+RUN chown -R root:root $LIFERAY_HOME
 
-RUN chmod +x $CATALINA_HOME/bin/catalina.sh
 
-USER liferay
+USER root
 
 EXPOSE 8080
 
