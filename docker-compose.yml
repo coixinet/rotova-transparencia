@@ -14,7 +14,7 @@ services:
     environment:
       MYSQL_DATABASE: 'rotova_transparencia'
       # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'rotova_transparencia'
+      MYSQL_USER: 'root'
       # You can use whatever password you like
       MYSQL_PASSWORD: 'Crujuozu0124!'
       # Password for root access
