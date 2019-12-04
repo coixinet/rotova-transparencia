@@ -26,8 +26,7 @@ RUN apt-get -qq update && \
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 
 RUN chown -R liferay:liferay $LIFERAY_HOME
-RUN mkdir /mnt/liferay
-RUN chown -R liferay:liferay /mnt/liferay
+RUN mount -o gid=1001,uid=1001 /mnt/liferay
 
 USER liferay
 
