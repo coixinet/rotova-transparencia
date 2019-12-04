@@ -12,10 +12,9 @@ RUN apt-get -qq update && \
   apt-get -qq install telnet && \
   apt-get -qq clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-  # useradd -ms /bin/bash liferay && \
-  set -x && \
   groupadd -r -g 1001 liferay && \
-  useradd -r -u 1001 -g 1001 -m -c -s /bin/false liferay && \
+  useradd -m /bin/bash -u 1001 -g 1001 liferay && \
+  set -x && \
   mkdir -p $LIFERAY_HOME && \
   curl -fSL "$LIFERAY_TOMCAT_URL" -o liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip && \
   unzip liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip && \
