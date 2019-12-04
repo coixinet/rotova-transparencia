@@ -12,6 +12,7 @@ RUN apt-get -qq update && \
   apt-get -qq install telnet && \
   apt-get -qq clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+  addgroup -gid 1001 liferay && \
   useradd -m -u 1001 -g 1001 -o -s /bin/bash liferay && \
   set -x && \
   mkdir -p $LIFERAY_HOME && \
