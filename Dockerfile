@@ -26,7 +26,7 @@ COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 
 RUN chown -R liferay:liferay $LIFERAY_HOME
 RUN chown -R liferay:liferay $CATALINA_HOME
-RUN ["chmod", "+x", "/opt/www626/tomcat-7.0.62/liferay-portal-6.2-ce-ga6/bin/catalina.sh"]
+RUN ["chmod", "+x", "/opt/www626/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/bin/catalina.sh"]
 
 
 USER liferay
