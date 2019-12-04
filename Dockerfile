@@ -14,8 +14,8 @@ RUN apt-get -qq update && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   # useradd -ms /bin/bash liferay && \
   set -x && \
-  addgroup -g 1001 -S liferay && \
-  adduser -u 1001 -D -S -G liferay liferay && \
+  groupadd -r -g 1001 liferay && \
+  useradd -r -u 1001 -g 1001 -m -c -s /bin/false liferay && \
   mkdir -p $LIFERAY_HOME && \
   curl -fSL "$LIFERAY_TOMCAT_URL" -o liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip && \
   unzip liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip && \
