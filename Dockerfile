@@ -24,9 +24,9 @@ RUN apt-get -qq update && \
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 
-RUN chown -R root:root $LIFERAY_HOME
+RUN chown -R ubuntu:ubuntu $LIFERAY_HOME
 
-USER root
+USER ubuntu
 
 EXPOSE 8080
 
