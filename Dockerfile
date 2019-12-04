@@ -23,12 +23,8 @@ RUN apt-get -qq update && \
   mkdir -p $LIFERAY_HOME/data/elasticsearch/indices
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
-RUN useradd -r -u 1001 -g liferay liferay
-RUN chown -R liferay:liferay $LIFERAY_HOME
-RUN chown -R liferay:liferay $CATALINA_HOME
-RUN ["chmod", "+x", "/opt/www626/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/bin/catalina.sh"]
-RUN ["chown", "liferay:liferay", "/opt/www626/liferay-portal-6.2-ce-ga6/tomcat-7.0.62/bin/catalina.sh"]
 
+RUN chown -R liferay:liferay $LIFERAY_HOME
 
 USER liferay
 
