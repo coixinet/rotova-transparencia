@@ -12,8 +12,7 @@ RUN apt-get -qq update && \
   apt-get -qq install telnet && \
   apt-get -qq clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-  addgroup -gid 1001 liferay && \
-  useradd -ms -u 1001 -g 1001 -o -s /bin/bash liferay && \
+  useradd -ms /bin/bash liferay && \
   set -x && \
   mkdir -p $LIFERAY_HOME && \
   curl -fSL "$LIFERAY_TOMCAT_URL" -o liferay-portal-tomcat-6.2-ce-ga6-20160112152609836.zip && \
@@ -25,9 +24,9 @@ RUN apt-get -qq update && \
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 
-RUN chown -R liferay:liferay $LIFERAY_HOME
+RUN chown -R root:root $LIFERAY_HOME
 
-USER liferay
+USER root
 
 EXPOSE 8080
 
